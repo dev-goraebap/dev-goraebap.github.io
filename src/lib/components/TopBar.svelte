@@ -2,6 +2,7 @@
 	import { page } from '$app/state';
 	import LiquidGlass from './LiquidGlass.svelte';
 	import { navItems } from '$lib/nav';
+	import { search } from '$lib/search.svelte';
 
 	let dark = $state(false);
 
@@ -22,8 +23,8 @@
 		<div class="flex items-center gap-5">
 			<a
 				href="/"
-				class="text-lg font-medium tracking-tight transition-colors duration-150"
-				style="color: var(--color-text); font-family: var(--font-code);"
+				class="text-2xl font-medium tracking-tight transition-colors duration-150"
+				style="color: var(--color-text); font-family: var(--font-logo);"
 				onclick={(e) => {
 					if (page.url.pathname === '/') e.preventDefault();
 				}}
@@ -54,7 +55,7 @@
 		<div class="flex items-center gap-2">
 			<!-- Search Bar (desktop only) -->
 			<div class="hidden md:block">
-				<LiquidGlass class="h-9 w-55 cursor-pointer items-center px-3 text-sm">
+				<LiquidGlass class="h-9 w-55 cursor-pointer items-center px-3 text-sm" onclick={() => (search.open = true)}>
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						width="14"
