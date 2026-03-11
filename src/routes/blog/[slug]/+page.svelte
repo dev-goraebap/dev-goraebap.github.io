@@ -14,7 +14,7 @@
 		'linear-gradient(135deg, #fccb90, #d57eeb)',
 		'linear-gradient(135deg, #e0c3fc, #8ec5fc)',
 		'linear-gradient(135deg, #f6d365, #fda085)',
-		'linear-gradient(135deg, #89f7fe, #66a6ff)',
+		'linear-gradient(135deg, #89f7fe, #66a6ff)'
 	];
 
 	function hashSlug(slug: string): number {
@@ -54,7 +54,7 @@
 			.map((h) => ({
 				id: h.id,
 				text: h.textContent ?? '',
-				level: parseInt(h.tagName[1]),
+				level: parseInt(h.tagName[1])
 			}));
 
 		if (tocItems.length === 0) return;
@@ -97,16 +97,9 @@
 		<!-- Thumbnail Hero -->
 		<div class="squircle mb-8 aspect-2/1 w-full overflow-hidden" style="border-radius: 20px;">
 			{#if data.meta.cover}
-				<img
-					src={data.meta.cover}
-					alt={data.meta.title}
-					class="h-full w-full object-cover"
-				/>
+				<img src={data.meta.cover} alt={data.meta.title} class="h-full w-full object-cover" />
 			{:else}
-				<div
-					class="flex h-full w-full items-center justify-center"
-					style="background: {gradient};"
-				>
+				<div class="flex h-full w-full items-center justify-center" style="background: {gradient};">
 					<span class="text-6xl font-light text-white/80" style="font-family: var(--font-heading);">
 						{data.meta.title.charAt(0)}
 					</span>
@@ -123,7 +116,10 @@
 				{data.meta.title}
 			</h1>
 			<div class="flex flex-wrap items-center justify-between gap-3">
-				<div class="flex flex-wrap items-center gap-3 text-sm" style="color: var(--color-text-secondary);">
+				<div
+					class="flex flex-wrap items-center gap-3 text-sm"
+					style="color: var(--color-text-secondary);"
+				>
 					<time datetime={data.meta.date}>{formatDate(data.meta.date)}</time>
 					{#if data.meta.tags?.length}
 						<span style="color: var(--color-border);">&middot;</span>
@@ -135,14 +131,39 @@
 				<button
 					onclick={copyUrl}
 					class="flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-xs transition-colors duration-150"
-					style="color: {copied ? 'var(--color-accent)' : 'var(--color-text-tertiary)'}; background-color: var(--color-surface);"
+					style="color: {copied
+						? 'var(--color-accent)'
+						: 'var(--color-text-tertiary)'}; background-color: var(--color-surface);"
 					title="URL 복사"
 				>
 					{#if copied}
-						<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="13"
+							height="13"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2"
+							stroke-linecap="round"
+							stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg
+						>
 						복사됨
 					{:else}
-						<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="13"
+							height="13"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							><rect x="9" y="9" width="13" height="13" rx="2" ry="2" /><path
+								d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"
+							/></svg
+						>
 						URL 복사
 					{/if}
 				</button>
@@ -160,7 +181,7 @@
 		<aside class="hidden md:block">
 			<div class="sticky top-20">
 				<h2
-					class="mb-4 text-sm font-semibold uppercase tracking-wider"
+					class="mb-4 text-sm font-semibold tracking-wider uppercase"
 					style="color: var(--color-text-tertiary);"
 				>
 					목차

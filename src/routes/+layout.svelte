@@ -25,7 +25,10 @@
 
 <div class="relative flex min-h-screen flex-col" style="background-color: var(--color-bg);">
 	<TopBar />
-	<main class="mx-auto w-full max-w-264 flex-1 px-4 py-8 pb-24 md:px-8 md:py-12 md:pb-12" style="view-transition-name: main-content;">
+	<main
+		class="mx-auto w-full max-w-264 flex-1 px-4 py-8 pb-24 md:px-8 md:py-12 md:pb-12"
+		style="view-transition-name: main-content;"
+	>
 		{@render children()}
 	</main>
 	<div class="hidden md:block"><Footer /></div>

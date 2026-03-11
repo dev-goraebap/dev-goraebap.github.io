@@ -28,21 +28,19 @@ Shiki를 사용해 코드 블록에 구문 강조를 적용했다:
 
 ```typescript
 export async function getPosts(): Promise<Post[]> {
-  const modules = import.meta.glob('/src/posts/*.md', { eager: true });
-  const posts: Post[] = [];
+	const modules = import.meta.glob('/src/posts/*.md', { eager: true });
+	const posts: Post[] = [];
 
-  for (const [path, module] of Object.entries(modules)) {
-    const { metadata } = module as { metadata: PostMeta };
-    const slug = path.split('/').pop()!.replace('.md', '');
+	for (const [path, module] of Object.entries(modules)) {
+		const { metadata } = module as { metadata: PostMeta };
+		const slug = path.split('/').pop()!.replace('.md', '');
 
-    if (metadata.published) {
-      posts.push({ meta: metadata, slug });
-    }
-  }
+		if (metadata.published) {
+			posts.push({ meta: metadata, slug });
+		}
+	}
 
-  return posts.sort((a, b) =>
-    new Date(b.meta.date).getTime() - new Date(a.meta.date).getTime()
-  );
+	return posts.sort((a, b) => new Date(b.meta.date).getTime() - new Date(a.meta.date).getTime());
 }
 ```
 

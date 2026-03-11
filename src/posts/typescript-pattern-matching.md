@@ -17,15 +17,13 @@ TypeScript에서 복잡한 조건 분기를 다룰 때 switch-case는 금방 한
 ```typescript
 import { match, P } from 'ts-pattern';
 
-type Shape =
-  | { kind: 'circle'; radius: number }
-  | { kind: 'rect'; w: number; h: number };
+type Shape = { kind: 'circle'; radius: number } | { kind: 'rect'; w: number; h: number };
 
 const area = (shape: Shape) =>
-  match(shape)
-    .with({ kind: 'circle' }, ({ radius }) => Math.PI * radius ** 2)
-    .with({ kind: 'rect' }, ({ w, h }) => w * h)
-    .exhaustive();
+	match(shape)
+		.with({ kind: 'circle' }, ({ radius }) => Math.PI * radius ** 2)
+		.with({ kind: 'rect' }, ({ w, h }) => w * h)
+		.exhaustive();
 ```
 
 패턴 매칭은 데이터의 **구조**를 기반으로 분기한다. 단순한 값 비교가 아니라, 객체의 형태 자체가 조건이 된다.

@@ -9,7 +9,7 @@
 </svelte:head>
 
 <h1
-	class="mb-8 text-center text-3xl font-normal leading-normal"
+	class="mb-8 text-center text-3xl leading-normal font-normal"
 	style="font-family: var(--font-heading); color: var(--color-text);"
 >
 	글

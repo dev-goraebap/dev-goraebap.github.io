@@ -1,5 +1,10 @@
 <script lang="ts">
-	let { children, class: className = '', pill = true, onclick }: {
+	let {
+		children,
+		class: className = '',
+		pill = true,
+		onclick
+	}: {
 		children: import('svelte').Snippet;
 		class?: string;
 		pill?: boolean;
@@ -10,12 +15,18 @@
 	let layers: HTMLElement;
 
 	// Spring physics state
-	let targetOX = 50, targetOY = 50;
-	let targetSX = 1, targetSY = 1;
-	let currentOX = 50, currentOY = 50;
-	let currentSX = 1, currentSY = 1;
-	let velocityOX = 0, velocityOY = 0;
-	let velocitySX = 0, velocitySY = 0;
+	let targetOX = 50,
+		targetOY = 50;
+	let targetSX = 1,
+		targetSY = 1;
+	let currentOX = 50,
+		currentOY = 50;
+	let currentSX = 1,
+		currentSY = 1;
+	let velocityOX = 0,
+		velocityOY = 0;
+	let velocitySX = 0,
+		velocitySY = 0;
 	let animating = false;
 
 	const stiffness = 0.08;
@@ -44,10 +55,13 @@
 		}
 
 		const settling =
-			Math.abs(velocityOX) + Math.abs(velocityOY) +
-			Math.abs(velocitySX) + Math.abs(velocitySY) > 0.0001 ||
-			Math.abs(targetOX - currentOX) + Math.abs(targetOY - currentOY) +
-			Math.abs(targetSX - currentSX) + Math.abs(targetSY - currentSY) > 0.01;
+			Math.abs(velocityOX) + Math.abs(velocityOY) + Math.abs(velocitySX) + Math.abs(velocitySY) >
+				0.0001 ||
+			Math.abs(targetOX - currentOX) +
+				Math.abs(targetOY - currentOY) +
+				Math.abs(targetSX - currentSX) +
+				Math.abs(targetSY - currentSY) >
+				0.01;
 
 		if (settling) {
 			requestAnimationFrame(tick);

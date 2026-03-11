@@ -16,12 +16,12 @@ Svelte 4까지의 반응성은 컴파일러 마법에 의존했다. `let count =
 
 ```svelte
 <script>
-  let count = $state(0);
-  let doubled = $derived(count * 2);
+	let count = $state(0);
+	let doubled = $derived(count * 2);
 </script>
 
 <button onclick={() => count++}>
-  {count} x 2 = {doubled}
+	{count} x 2 = {doubled}
 </button>
 ```
 
@@ -31,8 +31,8 @@ Runes는 반응성을 **명시적**으로 만든다. `$state()`로 선언한 것
 
 ```typescript
 $effect(() => {
-  console.log("count changed to " + count);
-  return () => console.log("cleanup");
+	console.log('count changed to ' + count);
+	return () => console.log('cleanup');
 });
 ```
 

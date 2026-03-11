@@ -6,7 +6,9 @@
 	preserveAspectRatio="xMaxYMax meet"
 	aria-hidden="true"
 >
-	<g style="stroke: var(--color-text); stroke-width: 0.7; fill: none; opacity: 0.07; stroke-linecap: round; stroke-linejoin: round;">
+	<g
+		style="stroke: var(--color-text); stroke-width: 0.7; fill: none; opacity: 0.07; stroke-linecap: round; stroke-linejoin: round;"
+	>
 		<!-- Main trunk rising from bottom right -->
 		<path d="M 240 900 C 230 840, 215 780, 200 710 C 188 655, 175 600, 158 535" />
 

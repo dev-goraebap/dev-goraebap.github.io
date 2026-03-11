@@ -14,7 +14,7 @@
 		'linear-gradient(135deg, #fccb90, #d57eeb)',
 		'linear-gradient(135deg, #e0c3fc, #8ec5fc)',
 		'linear-gradient(135deg, #f6d365, #fda085)',
-		'linear-gradient(135deg, #89f7fe, #66a6ff)',
+		'linear-gradient(135deg, #89f7fe, #66a6ff)'
 	];
 
 	function hashSlug(slug: string): number {
@@ -31,12 +31,15 @@
 <article class="group">
 	<a
 		href="/blog/{post.slug}"
-		class="squircle flex cursor-pointer flex-col overflow-hidden border p-2 transition-all duration-300 ease-in-out hover:shadow-sm" style:border-radius="28px"
+		class="squircle flex cursor-pointer flex-col overflow-hidden border p-2 transition-all duration-300 ease-in-out hover:shadow-sm"
+		style:border-radius="28px"
 		style="border-color: var(--color-border); background-color: var(--color-bg); box-shadow: 0 1px 2px 0 rgba(0,0,0,0.05);"
 	>
 		<!-- Cover Image -->
 		<div class="squircle relative aspect-[2/1] w-full overflow-hidden" style="border-radius: 20px;">
-			<div class="h-full w-full transition-transform duration-300 ease-in-out group-hover:scale-105">
+			<div
+				class="h-full w-full transition-transform duration-300 ease-in-out group-hover:scale-105"
+			>
 				{#if post.meta.cover}
 					<img
 						src={post.meta.cover}
@@ -49,7 +52,10 @@
 						class="absolute inset-0 flex items-center justify-center"
 						style="background: {gradient};"
 					>
-						<span class="text-4xl font-light text-white/80" style="font-family: var(--font-heading);">
+						<span
+							class="text-4xl font-light text-white/80"
+							style="font-family: var(--font-heading);"
+						>
 							{post.meta.title.charAt(0)}
 						</span>
 					</div>
@@ -59,7 +65,8 @@
 			<!-- Overlay Badge -->
 			<div class="absolute top-0 right-0 m-2">
 				<div
-					class="squircle flex h-7 items-center px-3 text-sm backdrop-blur-md" style:border-radius="10px"
+					class="squircle flex h-7 items-center px-3 text-sm backdrop-blur-md"
+					style:border-radius="10px"
 					style="background-color: color-mix(in srgb, var(--color-surface) 80%, transparent); color: var(--color-text); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--color-border) 40%, transparent), inset 1px 1px 0 0 color-mix(in srgb, var(--color-bg) 60%, transparent);"
 				>
 					<time datetime={post.meta.date}>{timeAgo(post.meta.date)}</time>
@@ -70,7 +77,7 @@
 		<!-- Title -->
 		<div class="max-h-[91px] px-4 pt-4 pb-2">
 			<h2
-				class="line-clamp-2 text-2xl font-normal leading-snug"
+				class="line-clamp-2 text-2xl leading-snug font-normal"
 				style="font-family: var(--font-heading); color: var(--color-text); letter-spacing: -0.03em;"
 			>
 				{post.meta.title}
