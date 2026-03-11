@@ -4,6 +4,8 @@
 /* ── Scrollbar layout stability ── */
 html {
 	scrollbar-gutter: stable;
+	scroll-behavior: smooth;
+	scroll-padding-top: 80px;
 }
 
 /* ── Page Transitions (View Transitions API) ── */
@@ -68,7 +70,7 @@ body::before {
 	--color-accent: #2563eb;
 	--color-accent-hover: #1d4ed8;
 	--color-border: #e2ddd4;
-	--color-code-bg: #f5f3ee;
+	--color-code-bg: #e8e4dc;
 }
 
 .dark {
@@ -85,7 +87,7 @@ body::before {
 
 /* ── Base ── */
 body {
-	font-family: 'Pretendard Variable', Pretendard, sans-serif;
+	font-family: var(--font-body);
 	font-weight: 300;
 	background-color: var(--color-bg);
 	color: var(--color-text);
@@ -96,9 +98,10 @@ body {
 
 /* ── Typography ── */
 @theme {
-	--font-heading: 'Playfair Display', 'Noto Serif KR', Georgia, serif;
-	--font-body: 'Pretendard Variable', Pretendard, sans-serif;
+	--font-heading: 'Domine', 'Noto Serif KR', Georgia, serif;
+	--font-body: 'DM Sans', 'Pretendard Variable', Pretendard, sans-serif;
 	--font-code: 'JetBrains Mono', monospace;
+	--font-logo: 'Caveat', cursive;
 }
 
 /* ── Prose Overrides (article typography) ── */
@@ -124,7 +127,7 @@ body {
 .prose h2,
 .prose h3 {
 	font-family: var(--font-heading);
-	letter-spacing: -0.02em;
+	letter-spacing: -0.01em;
 }
 
 .prose h1 {
@@ -288,8 +291,14 @@ body {
 	background-color: var(--color-code-bg);
 	padding: 0.15em 0.4em;
 	border-radius: 4px;
-	font-size: 0.9375rem;
+	font-size: 0.75rem;
 	font-family: var(--font-code);
+	font-weight: 400;
+}
+
+.prose code:not(pre code)::before,
+.prose code:not(pre code)::after {
+	content: none;
 }
 
 .prose pre {
@@ -324,12 +333,13 @@ body {
 }
 
 /* ── Shiki dual theme ── */
+/* Light: Shiki sets color directly as inline style — don't override */
 .shiki,
 .shiki span {
-	color: var(--shiki-light) !important;
 	background-color: transparent !important;
 }
 
+/* Dark: Shiki sets color as --shiki-dark variable */
 .dark .shiki,
 .dark .shiki span {
 	color: var(--shiki-dark) !important;
@@ -430,6 +440,10 @@ body {
 
 /* ── Reduced motion ── */
 @media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+
 	*,
 	*::before,
 	*::after {

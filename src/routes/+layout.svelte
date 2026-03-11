@@ -5,7 +5,8 @@
 	import TopBar from '$lib/components/TopBar.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import BottomNav from '$lib/components/BottomNav.svelte';
-	let { children } = $props();
+	import SearchModal from '$lib/components/SearchModal.svelte';
+	let { children, data } = $props();
 
 	onNavigate((navigation) => {
 		if (!document.startViewTransition) return;
@@ -34,3 +35,5 @@
 	<div class="hidden md:block"><Footer /></div>
 	<BottomNav />
 </div>
+
+<SearchModal posts={data.posts} />

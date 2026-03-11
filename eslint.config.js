@@ -26,7 +26,9 @@ export default defineConfig(
 			// Standard <a> tags don't need resolve() — SvelteKit handles them automatically
 			'svelte/no-navigation-without-resolve': 'off',
 			// Dark mode sync with DOM requires $state + $effect; writable derived doesn't fit this pattern
-			'svelte/prefer-writable-derived': 'off'
+			'svelte/prefer-writable-derived': 'off',
+			// {@html} used only for server-controlled highlight markup — not user input
+			'svelte/no-at-html-tags': 'off'
 		}
 	},
 	{

@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/state';
 	import { navItems as sharedNav } from '$lib/nav';
+	import { search } from '$lib/search.svelte';
 
 	const navItems = [
 		{ ...sharedNav[0] },
@@ -15,29 +16,38 @@
 			href === '/'
 				? !page.url.pathname.startsWith('/about') && !page.url.pathname.startsWith('/search')
 				: page.url.pathname.startsWith(href)}
-		<a
-			{href}
-			class="bottom-nav-item"
-			style="color: {isActive ? 'var(--color-accent)' : 'var(--color-text-tertiary)'};"
-		>
-			{#if href === '/'}
-				<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-					<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
-					<path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
-				</svg>
-			{:else if href === '/search'}
+		{#if href === '/search'}
+			<button
+				class="bottom-nav-item"
+				style="color: {search.open ? 'var(--color-accent)' : 'var(--color-text-tertiary)'};"
+				onclick={() => (search.open = true)}
+			>
 				<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 					<circle cx="11" cy="11" r="8" />
 					<path d="m21 21-4.3-4.3" />
 				</svg>
-			{:else}
-				<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-					<circle cx="12" cy="8" r="4" />
-					<path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
-				</svg>
-			{/if}
-			<span class="bottom-nav-label">{label}</span>
-		</a>
+				<span class="bottom-nav-label">{label}</span>
+			</button>
+		{:else}
+			<a
+				{href}
+				class="bottom-nav-item"
+				style="color: {isActive ? 'var(--color-accent)' : 'var(--color-text-tertiary)'};"
+			>
+				{#if href === '/'}
+					<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+						<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+						<path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+					</svg>
+				{:else}
+					<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+						<circle cx="12" cy="8" r="4" />
+						<path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
+					</svg>
+				{/if}
+				<span class="bottom-nav-label">{label}</span>
+			</a>
+		{/if}
 	{/each}
 </nav>
 
@@ -67,6 +77,10 @@
 		gap: 3px;
 		padding: 10px 0;
 		transition: color 150ms ease;
+		background: none;
+		border: none;
+		cursor: pointer;
+		font-family: inherit;
 	}
 
 	.bottom-nav-label {

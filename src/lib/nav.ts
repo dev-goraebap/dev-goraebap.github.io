@@ -1,4 +1,4 @@
 export const navItems = [
-	{ href: '/', label: '피드' },
-	{ href: '/about', label: '헬로월드' }
+	{ href: '/', label: '글' },
+	{ href: '/about', label: '소개' }
 ];
