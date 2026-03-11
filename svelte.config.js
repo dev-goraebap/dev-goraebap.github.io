@@ -7,7 +7,18 @@ import rehypeCallouts from './src/lib/rehype-callouts.js';
 
 const highlighter = await createHighlighter({
 	themes: ['github-light', 'github-dark'],
-	langs: ['javascript', 'typescript', 'svelte', 'html', 'css', 'bash', 'json', 'markdown', 'yaml', 'dockerfile']
+	langs: [
+		'javascript',
+		'typescript',
+		'svelte',
+		'html',
+		'css',
+		'bash',
+		'json',
+		'markdown',
+		'yaml',
+		'dockerfile'
+	]
 });
 
 /** @type {import('@sveltejs/kit').Config} */
@@ -16,11 +27,7 @@ const config = {
 	preprocess: [
 		mdsvex({
 			extensions: ['.md'],
-			rehypePlugins: [
-				rehypeSlug,
-				[rehypeAutolinkHeadings, { behavior: 'wrap' }],
-				rehypeCallouts
-			],
+			rehypePlugins: [rehypeSlug, [rehypeAutolinkHeadings, { behavior: 'wrap' }], rehypeCallouts],
 			highlight: {
 				highlighter: (code, lang) => {
 					const html = highlighter.codeToHtml(code, {

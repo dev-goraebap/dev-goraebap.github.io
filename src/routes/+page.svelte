@@ -37,7 +37,7 @@
 		<!-- Feed Header -->
 		<section class="mb-6">
 			<h1
-				class="text-3xl font-normal leading-normal"
+				class="text-3xl leading-normal font-normal"
 				style="font-family: var(--font-heading); color: var(--color-text);"
 			>
 				읽어볼 만한 글
@@ -90,8 +90,17 @@
 						pill={true}
 						onclick={() => selectTag(tag)}
 					>
-						<span style="color: {active ? 'var(--color-accent)' : 'var(--color-text-secondary)'}; transition: color 150ms ease;">{tag}</span>
-						<span class="ml-1.5 text-xs" style="color: {active ? 'var(--color-accent)' : 'var(--color-text-tertiary)'}; transition: color 150ms ease;">{count}</span>
+						<span
+							style="color: {active
+								? 'var(--color-accent)'
+								: 'var(--color-text-secondary)'}; transition: color 150ms ease;">{tag}</span
+						>
+						<span
+							class="ml-1.5 text-xs"
+							style="color: {active
+								? 'var(--color-accent)'
+								: 'var(--color-text-tertiary)'}; transition: color 150ms ease;">{count}</span
+						>
 					</LiquidGlass>
 				{/each}
 			</div>
