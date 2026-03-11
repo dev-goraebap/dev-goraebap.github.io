@@ -33,7 +33,7 @@
 		</a>
 
 		<div class="flex items-center gap-6">
-			{#each navItems as { href, label }}
+			{#each navItems as { href, label } (href)}
 				<a
 					{href}
 					class="text-sm font-medium transition-colors duration-150"

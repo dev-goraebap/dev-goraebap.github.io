@@ -30,7 +30,7 @@
 			>
 				dev.goraebap
 			</a>
-			{#each navItems as { href, label }}
+			{#each navItems as { href, label } (href)}
 				{@const isActive =
 					href === '/'
 						? !page.url.pathname.startsWith('/about')

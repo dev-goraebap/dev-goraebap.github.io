@@ -1,6 +1,7 @@
 <script lang="ts">
 	import PostCard from '$lib/components/PostCard.svelte';
 	import LiquidGlass from '$lib/components/LiquidGlass.svelte';
+	import { SvelteMap } from 'svelte/reactivity';
 
 	let { data } = $props();
 
@@ -13,7 +14,7 @@
 
 	// 태그별 사용 횟수 집계
 	let tagCounts = $derived.by(() => {
-		const map = new Map<string, number>();
+		const map = new SvelteMap<string, number>();
 		for (const post of data.posts) {
 			for (const tag of post.meta.tags ?? []) {
 				map.set(tag, (map.get(tag) ?? 0) + 1);
@@ -83,7 +84,7 @@
 				Topics
 			</h2>
 			<div class="flex flex-wrap gap-2">
-				{#each tagCounts as [tag, count]}
+				{#each tagCounts as [tag, count] (tag)}
 					{@const active = selectedTag === tag}
 					<LiquidGlass
 						class="tag-chip h-8 cursor-pointer items-center px-3 text-sm"

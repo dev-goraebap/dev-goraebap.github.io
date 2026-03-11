@@ -21,7 +21,7 @@
 		</p>
 		{#if post.meta.tags?.length}
 			<div class="mt-3 flex flex-wrap gap-2">
-				{#each post.meta.tags as tag}
+				{#each post.meta.tags as tag (tag)}
 					<span class="text-sm font-medium" style="color: var(--color-text-tertiary);">
 						{tag}
 					</span>
