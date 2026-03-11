@@ -152,7 +152,6 @@
 	</defs>
 </svg>
 
-<!-- svelte-ignore a11y_no_static_element_interactions -->
 <div
 	bind:this={wrapper}
 	class="liquid-glass-wrapper {pill ? 'liquid-glass-pill' : ''} {className}"

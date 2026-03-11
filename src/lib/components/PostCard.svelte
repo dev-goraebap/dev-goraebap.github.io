@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { formatDate, timeAgo } from '$lib/posts';
+	import { timeAgo } from '$lib/posts';
 	import type { Post } from '$lib/posts';
 
 	let { post }: { post: Post } = $props();
@@ -94,7 +94,7 @@
 		<!-- Tags -->
 		{#if post.meta.tags?.length}
 			<div class="mt-auto flex flex-wrap gap-2 px-4 pt-2 pb-3">
-				{#each post.meta.tags as tag}
+				{#each post.meta.tags as tag (tag)}
 					<span class="text-xs" style="color: var(--color-text-tertiary);">{tag}</span>
 				{/each}
 			</div>

@@ -17,7 +17,7 @@
 
 {#if data.posts.length > 0}
 	<div class="mx-auto flex max-w-[640px] flex-col gap-4">
-		{#each data.posts as post}
+		{#each data.posts as post (post.slug)}
 			<PostCard {post} />
 		{/each}
 	</div>
