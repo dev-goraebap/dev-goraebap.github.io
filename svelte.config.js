@@ -41,9 +41,6 @@ const config = {
 	],
 	kit: {
 		adapter: adapter({ fallback: '404.html' }),
-		paths: {
-			base: process.env.NODE_ENV === 'production' ? '/dev-goraebap' : ''
-		},
 		prerender: {
 			handleHttpError: 'warn'
 		}
