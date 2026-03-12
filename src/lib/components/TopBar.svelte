@@ -107,8 +107,8 @@
 						stroke-width="2"
 						stroke-linecap="round"
 						stroke-linejoin="round"
-						class="absolute inset-0 scale-100 rotate-0 transition-all duration-300 dark:scale-0 dark:-rotate-90"
-						style="color: var(--color-text-secondary);"
+						class="absolute inset-0"
+						style="color: var(--color-text-secondary); transform: scale({dark ? 0 : 1}) rotate({dark ? -90 : 0}deg); transition: transform 300ms cubic-bezier(0.34, 1.56, 0.64, 1);"
 					>
 						<circle cx="12" cy="12" r="4" />
 						<path d="M12 2v2" />
@@ -132,8 +132,8 @@
 						stroke-width="2"
 						stroke-linecap="round"
 						stroke-linejoin="round"
-						class="absolute inset-0 scale-0 rotate-90 transition-all duration-300 dark:scale-100 dark:rotate-0"
-						style="color: var(--color-text-secondary);"
+						class="absolute inset-0"
+						style="color: var(--color-text-secondary); transform: scale({dark ? 1 : 0}) rotate({dark ? 0 : 90}deg); transition: transform 300ms cubic-bezier(0.34, 1.56, 0.64, 1);"
 					>
 						<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
 					</svg>
