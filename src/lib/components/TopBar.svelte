@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/state';
+	import { base } from '$app/paths';
 	import LiquidGlass from './LiquidGlass.svelte';
 	import { navItems } from '$lib/nav';
 	import { search } from '$lib/search.svelte';
@@ -22,11 +23,11 @@
 		<!-- Logo + Nav -->
 		<div class="flex items-center gap-5">
 			<a
-				href="/"
+				href="{base}/"
 				class="text-2xl font-medium tracking-tight transition-colors duration-150"
 				style="color: var(--color-text); font-family: var(--font-logo);"
 				onclick={(e) => {
-					if (page.url.pathname === '/') e.preventDefault();
+					if (page.route.id === '/') e.preventDefault();
 				}}
 			>
 				dev.goraebap
@@ -34,11 +35,11 @@
 			{#each navItems as { href, label } (href)}
 				{@const isActive =
 					href === '/'
-						? !page.url.pathname.startsWith('/about')
-						: page.url.pathname.startsWith(href)}
-				{@const isCurrent = page.url.pathname === href}
+						? page.route.id !== '/about'
+						: page.route.id?.startsWith(href)}
+				{@const isCurrent = page.route.id === href}
 				<a
-					{href}
+					href="{base}{href}"
 					class="hidden text-sm font-medium transition-colors duration-150 md:inline"
 					style="color: {isActive ? 'var(--color-accent)' : 'var(--color-text-secondary)'};"
 					aria-current={isCurrent ? 'page' : undefined}

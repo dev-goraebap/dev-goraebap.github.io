@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/state';
+	import { base } from '$app/paths';
 	import { navItems as sharedNav } from '$lib/nav';
 	import { search } from '$lib/search.svelte';
 
@@ -14,8 +15,8 @@
 	{#each navItems as { href, label } (href)}
 		{@const isActive =
 			href === '/'
-				? !page.url.pathname.startsWith('/about') && !page.url.pathname.startsWith('/search')
-				: page.url.pathname.startsWith(href)}
+				? page.route.id !== '/about'
+				: page.route.id?.startsWith(href)}
 		{#if href === '/search'}
 			<button
 				class="bottom-nav-item"
@@ -30,7 +31,7 @@
 			</button>
 		{:else}
 			<a
-				{href}
+				href="{base}{href}"
 				class="bottom-nav-item"
 				style="color: {isActive ? 'var(--color-accent)' : 'var(--color-text-tertiary)'};"
 			>
