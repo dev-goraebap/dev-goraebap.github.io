@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { base } from '$app/paths';
 	import { timeAgo } from '$lib/posts';
 	import type { Post } from '$lib/posts';
 
@@ -30,7 +31,7 @@
 
 <article class="group">
 	<a
-		href="/blog/{post.slug}"
+		href="{base}/blog/{post.slug}"
 		class="squircle flex cursor-pointer flex-col overflow-hidden border p-2 transition-all duration-300 ease-in-out hover:shadow-sm"
 		style:border-radius="28px"
 		style="border-color: var(--color-border); background-color: var(--color-bg); box-shadow: 0 1px 2px 0 rgba(0,0,0,0.05);"

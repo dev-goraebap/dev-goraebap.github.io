@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
+	import { base } from '$app/paths';
 	import { tick } from 'svelte';
 	import { search } from '$lib/search.svelte';
 	import type { Post } from '$lib/posts';
@@ -78,7 +79,7 @@
 	}
 
 	function navigate(post: Post) {
-		goto(`/blog/${post.slug}`);
+		goto(`${base}/blog/${post.slug}`);
 		closeModal();
 	}
 
