@@ -19,7 +19,7 @@
 </script>
 
 <header class="sticky top-0 z-10 px-4 py-3 md:px-8">
-	<nav class="mx-auto flex max-w-[1056px] items-center justify-between">
+	<nav class="mx-auto flex max-w-264 items-center justify-between">
 		<!-- Logo + Nav -->
 		<div class="flex items-center gap-5">
 			<a

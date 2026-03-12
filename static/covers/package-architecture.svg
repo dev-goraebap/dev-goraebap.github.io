@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+
+<rect width="800" height="400" style="fill:#EDE8DF;"/>
+
+<g style="fill:none;stroke:#2D2825;stroke-miterlimit:10;stroke-linecap:round;stroke-linejoin:round;">
+
+  <!-- Ground line -->
+  <line x1="342" y1="386" x2="458" y2="386" style="stroke-width:0.8;" opacity="0.35"/>
+
+  <!-- Trunk -->
+  <path style="stroke-width:2.4;"
+    d="M400,386 C399,358 401,322 402,290 C402,272 401,257 400,242"/>
+
+  <!-- Left main branch -->
+  <path style="stroke-width:1.7;"
+    d="M400,242 C377,233 332,210 286,182 C262,168 241,158 225,153"/>
+
+  <!-- Right main branch -->
+  <path style="stroke-width:1.7;"
+    d="M400,242 C423,233 468,210 514,182 C538,168 559,158 575,153"/>
+
+  <!-- Small side twigs off left main branch -->
+  <path style="stroke-width:0.8;"
+    d="M312,195 C309,188 305,178 303,168"/>
+  <path style="stroke-width:0.8;"
+    d="M268,171 C264,163 261,153 260,143"/>
+
+  <!-- Small side twigs off right main branch -->
+  <path style="stroke-width:0.8;"
+    d="M488,195 C491,188 495,178 497,168"/>
+  <path style="stroke-width:0.8;"
+    d="M532,171 C536,163 539,153 541,143"/>
+
+  <!-- Left sub-branches -->
+  <path style="stroke-width:1.2;"
+    d="M225,153 C207,138 170,110 142,87 C134,81 123,76 115,73"/>
+  <path style="stroke-width:1.2;"
+    d="M225,153 C220,133 213,98 208,71 C206,63 205,57 205,52"/>
+  <path style="stroke-width:1.2;"
+    d="M225,153 C236,133 258,99 279,72 C285,64 293,57 300,54"/>
+
+  <!-- Right sub-branches -->
+  <path style="stroke-width:1.2;"
+    d="M575,153 C564,133 542,99 521,72 C515,64 507,57 500,54"/>
+  <path style="stroke-width:1.2;"
+    d="M575,153 C580,133 587,98 592,71 C594,63 595,57 595,52"/>
+  <path style="stroke-width:1.2;"
+    d="M575,153 C593,138 630,110 658,87 C666,81 677,76 685,73"/>
+
+  <!-- Fine tip marks (left side) -->
+  <path style="stroke-width:0.65;" opacity="0.7"
+    d="M107,63 C104,56 107,48 112,45"/>
+  <path style="stroke-width:0.65;" opacity="0.7"
+    d="M120,60 C120,52 117,45 115,41"/>
+  <path style="stroke-width:0.65;" opacity="0.7"
+    d="M197,42 C194,35 197,27 202,24"/>
+  <path style="stroke-width:0.65;" opacity="0.7"
+    d="M211,38 C212,30 210,23 207,20"/>
+  <path style="stroke-width:0.65;" opacity="0.7"
+    d="M292,44 C290,37 293,29 298,26"/>
+  <path style="stroke-width:0.65;" opacity="0.7"
+    d="M306,42 C308,34 306,27 302,24"/>
+
+  <!-- Fine tip marks (right side) -->
+  <path style="stroke-width:0.65;" opacity="0.7"
+    d="M492,44 C490,37 493,29 498,26"/>
+  <path style="stroke-width:0.65;" opacity="0.7"
+    d="M506,42 C508,34 506,27 502,24"/>
+  <path style="stroke-width:0.65;" opacity="0.7"
+    d="M587,42 C585,35 588,27 593,24"/>
+  <path style="stroke-width:0.65;" opacity="0.7"
+    d="M601,38 C602,30 600,23 597,20"/>
+  <path style="stroke-width:0.65;" opacity="0.7"
+    d="M693,63 C696,56 693,48 688,45"/>
+  <path style="stroke-width:0.65;" opacity="0.7"
+    d="M680,60 C680,52 683,45 685,41"/>
+
+  <!-- Branch junction nodes -->
+  <circle cx="400" cy="242" r="5.2" style="fill:#2D2825;stroke:none;"/>
+  <circle cx="225" cy="153" r="4"   style="fill:#2D2825;stroke:none;"/>
+  <circle cx="575" cy="153" r="4"   style="fill:#2D2825;stroke:none;"/>
+
+  <!-- Leaf nodes (hollow) -->
+  <circle cx="115" cy="73"  r="6"   style="fill:#EDE8DF;stroke-width:1.3;"/>
+  <circle cx="205" cy="52"  r="6"   style="fill:#EDE8DF;stroke-width:1.3;"/>
+  <circle cx="300" cy="54"  r="6"   style="fill:#EDE8DF;stroke-width:1.3;"/>
+  <circle cx="500" cy="54"  r="6"   style="fill:#EDE8DF;stroke-width:1.3;"/>
+  <circle cx="595" cy="52"  r="6"   style="fill:#EDE8DF;stroke-width:1.3;"/>
+  <circle cx="685" cy="73"  r="6"   style="fill:#EDE8DF;stroke-width:1.3;"/>
+
+  <!-- Decorative root lines below ground -->
+  <path style="stroke-width:0.9;" opacity="0.38"
+    d="M396,386 C388,390 374,394 362,392"/>
+  <path style="stroke-width:0.9;" opacity="0.38"
+    d="M404,386 C412,390 426,394 438,392"/>
+  <path style="stroke-width:0.6;" opacity="0.25"
+    d="M370,392 C360,396 348,398 338,396"/>
+  <path style="stroke-width:0.6;" opacity="0.25"
+    d="M430,392 C440,396 452,398 462,396"/>
+
+</g>
+
+</svg>

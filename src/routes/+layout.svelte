@@ -1,5 +1,15 @@
 <script lang="ts">
 	import './layout.css';
+	import '@fontsource/caveat/500.css';
+	import '@fontsource/caveat/600.css';
+	import '@fontsource-variable/dm-sans';
+	import '@fontsource-variable/domine';
+	import '@fontsource/noto-serif-kr/300.css';
+	import '@fontsource/noto-serif-kr/400.css';
+	import '@fontsource/noto-serif-kr/500.css';
+	import '@fontsource/jetbrains-mono/400.css';
+	import '@fontsource/jetbrains-mono/500.css';
+	import 'pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css';
 	import { onNavigate } from '$app/navigation';
 	import favicon from '$lib/assets/favicon.svg';
 	import TopBar from '$lib/components/TopBar.svelte';

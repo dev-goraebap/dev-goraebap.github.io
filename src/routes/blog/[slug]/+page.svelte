@@ -145,6 +145,29 @@
 			</div>
 		</header>
 
+		<!-- Mobile TOC (collapsible) -->
+		{#if tocItems.length > 0}
+			<details class="md:hidden mb-8 rounded-xl overflow-hidden" style="background-color: var(--color-surface); border: 1px solid var(--color-border);">
+				<summary class="flex items-center justify-between px-4 py-3 text-sm font-semibold cursor-pointer select-none" style="color: var(--color-text-tertiary); letter-spacing: 0.05em; text-transform: uppercase; list-style: none;">
+					목차
+					<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+				</summary>
+				<nav class="px-4 pb-3 pt-1">
+					<ul class="flex flex-col gap-1">
+						{#each tocItems as item (item.id)}
+							<li>
+								{#if item.level === 2}
+									<a href="#{item.id}" class="block py-1 text-sm leading-snug" style="color: var(--color-text-secondary); padding-left: 0.5rem; border-left: 2px solid var(--color-border);">{item.text}</a>
+								{:else}
+									<a href="#{item.id}" class="block py-0.5 text-xs leading-snug" style="color: var(--color-text-tertiary); padding-left: 1.25rem;"><span style="opacity:0.4;margin-right:0.25rem;">#</span>{item.text}</a>
+								{/if}
+							</li>
+						{/each}
+					</ul>
+				</nav>
+			</details>
+		{/if}
+
 		<!-- Content -->
 		<div class="prose">
 			<data.content />
@@ -165,17 +188,23 @@
 					<ul class="flex flex-col gap-1">
 						{#each tocItems as item (item.id)}
 							<li>
-								<a
-									href="#{item.id}"
-									class="block py-1 text-sm leading-snug transition-colors duration-150"
-									style="color: {activeId === item.id
-										? 'var(--color-accent)'
-										: 'var(--color-text-secondary)'}; border-left: 2px solid {activeId === item.id
-										? 'var(--color-accent)'
-										: 'transparent'}; padding-left: {item.level === 3 ? '0.75rem' : '0.5rem'};"
-								>
-									{item.text}
-								</a>
+								{#if item.level === 2}
+									<a
+										href="#{item.id}"
+										class="block py-1 text-sm leading-snug transition-colors duration-150"
+										style="color: {activeId === item.id ? 'var(--color-accent)' : 'var(--color-text-secondary)'}; border-left: 2px solid {activeId === item.id ? 'var(--color-accent)' : 'transparent'}; padding-left: 0.5rem;"
+									>
+										{item.text}
+									</a>
+								{:else}
+									<a
+										href="#{item.id}"
+										class="block py-0.5 text-xs leading-snug transition-colors duration-150"
+										style="color: {activeId === item.id ? 'var(--color-accent)' : 'var(--color-text-tertiary)'}; padding-left: 1.25rem;"
+									>
+										<span style="opacity: 0.4; margin-right: 0.25rem;">#</span>{item.text}
+									</a>
+								{/if}
 							</li>
 						{/each}
 					</ul>
