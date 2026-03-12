@@ -32,9 +32,9 @@
 <article class="group">
 	<a
 		href="{base}/blog/{post.slug}"
-		class="squircle flex cursor-pointer flex-col overflow-hidden border p-2 transition-all duration-300 ease-in-out hover:shadow-sm"
+		class="squircle flex cursor-pointer flex-col overflow-hidden border p-2 transition-all duration-300 ease-in-out"
 		style:border-radius="28px"
-		style="border-color: var(--color-border); background-color: var(--color-bg); box-shadow: 0 1px 2px 0 rgba(0,0,0,0.05);"
+		style="border-color: var(--color-border); background-color: var(--color-bg);"
 	>
 		<!-- Cover Image -->
 		<div class="squircle relative aspect-[2/1] w-full overflow-hidden" style="border-radius: 20px;">

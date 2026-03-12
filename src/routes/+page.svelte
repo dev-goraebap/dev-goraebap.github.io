@@ -49,7 +49,16 @@
 		</section>
 
 		<!-- Feed -->
-		{#if filteredPosts.length > 0}
+		{#if data.posts.length === 0}
+			<div class="py-20 text-center">
+				<p class="mb-2 text-2xl font-normal" style="font-family: var(--font-heading); color: var(--color-text);">
+					아직 글이 없습니다
+				</p>
+				<p class="text-sm" style="color: var(--color-text-tertiary);">
+					곧 공을 들인 첫 번째 글로 돌아오겠습니다.
+				</p>
+			</div>
+		{:else if filteredPosts.length > 0}
 			<section class="flex flex-col gap-4">
 				{#each filteredPosts as post (post.slug)}
 					<PostCard {post} />

@@ -145,7 +145,17 @@ function convertBlockquote(node) {
 			children: [{ type: 'text', value: remaining }, ...firstP.children.slice(1)]
 		};
 	} else {
-		restChildren.splice(firstPIndex, 1);
+		// [!NOTE] 뒤에 내용이 같은 <p> 안에 <br> + 텍스트로 있을 수 있음
+		const afterChildren = firstP.children.slice(1);
+		const startIdx =
+			afterChildren.length > 0 && afterChildren[0].tagName === 'br' ? 1 : 0;
+		const remainingPChildren = afterChildren.slice(startIdx);
+
+		if (remainingPChildren.length > 0) {
+			restChildren[firstPIndex] = { ...firstP, children: remainingPChildren };
+		} else {
+			restChildren.splice(firstPIndex, 1);
+		}
 	}
 
 	return {

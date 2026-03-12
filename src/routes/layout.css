@@ -201,12 +201,12 @@ body {
 }
 
 .prose blockquote {
-	border-left: 2px solid var(--color-accent);
-	background-color: transparent;
-	padding: 0.25rem 1rem;
+	border-left: 3px solid var(--color-accent);
+	background-color: color-mix(in srgb, var(--color-accent) 6%, transparent);
+	padding: 0.75rem 1rem;
 	color: var(--color-text-secondary);
 	font-style: italic;
-	border-radius: 0;
+	border-radius: 0 6px 6px 0;
 	margin: 1.5rem 0;
 }
 

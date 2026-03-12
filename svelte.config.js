@@ -3,6 +3,7 @@ import { mdsvex } from 'mdsvex';
 import { createHighlighter } from 'shiki';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import rehypeExternalLinks from 'rehype-external-links';
 import rehypeCallouts from './src/lib/rehype-callouts.js';
 
 const highlighter = await createHighlighter({
@@ -27,7 +28,7 @@ const config = {
 	preprocess: [
 		mdsvex({
 			extensions: ['.md'],
-			rehypePlugins: [rehypeSlug, [rehypeAutolinkHeadings, { behavior: 'wrap' }], rehypeCallouts],
+			rehypePlugins: [rehypeSlug, [rehypeAutolinkHeadings, { behavior: 'wrap' }], rehypeCallouts, [rehypeExternalLinks, { target: '_blank', rel: ['noopener', 'noreferrer'] }]],
 			highlight: {
 				highlighter: (code, lang) => {
 					const html = highlighter.codeToHtml(code, {
