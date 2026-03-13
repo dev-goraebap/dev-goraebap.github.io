@@ -66,11 +66,13 @@
 		document.body.style.overflow = search.open ? 'hidden' : '';
 	});
 
-	async function openModal() {
-		search.open = true;
-		await tick();
-		inputEl?.focus();
-	}
+	// Register focus callback for mobile keyboard support
+	$effect(() => {
+		search.onOpen = () => {
+			tick().then(() => inputEl?.focus());
+		};
+		return () => { search.onOpen = null; };
+	});
 
 	function closeModal() {
 		search.open = false;
@@ -86,7 +88,7 @@
 	function handleKeydown(e: KeyboardEvent) {
 		if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
 			e.preventDefault();
-			if (search.open) { closeModal(); } else { openModal(); }
+			if (search.open) { closeModal(); } else { search.show(); }
 			return;
 		}
 		if (!search.open) return;
