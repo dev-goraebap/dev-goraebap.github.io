@@ -135,7 +135,7 @@
 					{#if data.meta.tags?.length}
 						<span style="color: var(--color-border);">&middot;</span>
 						{#each data.meta.tags as tag (tag)}
-							<span class="font-medium" style="color: var(--color-text-tertiary);">{tag}</span>
+							<span class="font-medium" style="color: var(--color-text-tertiary);">#{tag}</span>
 						{/each}
 					{/if}
 				</div>

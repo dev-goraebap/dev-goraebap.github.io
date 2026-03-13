@@ -23,7 +23,7 @@
 			<div class="mt-3 flex flex-wrap gap-2">
 				{#each post.meta.tags as tag (tag)}
 					<span class="text-sm font-medium" style="color: var(--color-text-tertiary);">
-						{tag}
+						#{tag}
 					</span>
 				{/each}
 			</div>
