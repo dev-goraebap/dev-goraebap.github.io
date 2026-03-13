@@ -105,7 +105,8 @@
 	<meta property="og:description" content={data.meta.description} />
 	<meta property="og:type" content="article" />
 	{#if data.meta.cover}
-		<meta property="og:image" content="{SITE_URL}{data.meta.cover}" />
+		{@const ogImage = data.meta.cover.replace('/covers/', '/og/').replace('.svg', '.png')}
+		<meta property="og:image" content="{SITE_URL}{ogImage}" />
 	{/if}
 </svelte:head>
 
