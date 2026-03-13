@@ -31,6 +31,10 @@ const config = {
 			rehypePlugins: [rehypeSlug, [rehypeAutolinkHeadings, { behavior: 'wrap' }], rehypeCallouts, [rehypeExternalLinks, { target: '_blank', rel: ['noopener', 'noreferrer'] }]],
 			highlight: {
 				highlighter: (code, lang) => {
+					if (lang === 'mermaid') {
+						const escaped = code.replace(/`/g, '\\`').replace(/\{/g, '&#123;').replace(/\}/g, '&#125;');
+						return `{@html \`<div class="mermaid">${escaped}</div>\`}`;
+					}
 					const html = highlighter.codeToHtml(code, {
 						lang: lang || 'text',
 						themes: { light: 'github-light', dark: 'github-dark' }

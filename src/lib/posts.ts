@@ -5,6 +5,7 @@ export interface PostMeta {
 	tags: string[];
 	cover?: string;
 	published: boolean;
+	order?: number;
 }
 
 export interface Post {
@@ -26,12 +27,23 @@ export async function getPosts(): Promise<Post[]> {
 		}
 	}
 
-	posts.sort((a, b) => new Date(b.meta.date).getTime() - new Date(a.meta.date).getTime());
+	posts.sort((a, b) => {
+		const aIsOld = a.meta.date === 'LONG_AGO';
+		const bIsOld = b.meta.date === 'LONG_AGO';
+
+		// 오래전 글은 항상 뒤로
+		if (aIsOld && bIsOld) return (b.meta.order ?? 0) - (a.meta.order ?? 0);
+		if (aIsOld) return 1;
+		if (bIsOld) return -1;
+
+		return new Date(b.meta.date).getTime() - new Date(a.meta.date).getTime();
+	});
 
 	return posts;
 }
 
 export function formatDate(dateStr: string): string {
+	if (dateStr === 'LONG_AGO') return '오래전';
 	return new Date(dateStr).toLocaleDateString('ko-KR', {
 		year: 'numeric',
 		month: 'long',
@@ -40,6 +52,7 @@ export function formatDate(dateStr: string): string {
 }
 
 export function timeAgo(dateStr: string): string {
+	if (dateStr === 'LONG_AGO') return '오래전';
 	const now = Date.now();
 	const past = new Date(dateStr).getTime();
 	const diff = now - past;

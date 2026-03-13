@@ -14,7 +14,7 @@
 	});
 
 	const navItems = [
-		{ href: '/blog', label: '피드' },
+		{ href: '/posts', label: '피드' },
 		{ href: '/about', label: '헬로월드' }
 	];
 </script>

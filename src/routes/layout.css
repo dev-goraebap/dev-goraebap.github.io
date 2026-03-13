@@ -346,6 +346,21 @@ body {
 	background-color: transparent !important;
 }
 
+/* ── Mermaid diagrams ── */
+.prose .mermaid {
+	background: transparent;
+	border: none;
+	padding: 0;
+	margin: 1.5rem 0;
+	text-align: center;
+	overflow-x: auto;
+}
+
+.prose .mermaid svg {
+	max-width: 100%;
+	height: auto;
+}
+
 /* ── Responsive prose ── */
 @media (max-width: 768px) {
 	.prose {

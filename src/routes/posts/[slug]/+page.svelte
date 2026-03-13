@@ -1,7 +1,18 @@
 <script lang="ts">
 	import { formatDate } from '$lib/posts';
+	import mermaid from 'mermaid';
 
 	let { data } = $props();
+
+	function initMermaid(node: HTMLElement) {
+		const isDark = document.documentElement.classList.contains('dark');
+		mermaid.initialize({
+			startOnLoad: false,
+			theme: isDark ? 'dark' : 'default',
+			fontFamily: 'var(--font-body)'
+		});
+		mermaid.run({ nodes: node.querySelectorAll('.mermaid') });
+	}
 
 	// --- Gradient (same as PostCard) ---
 	const gradients = [
@@ -169,7 +180,7 @@
 		{/if}
 
 		<!-- Content -->
-		<div class="prose">
+		<div class="prose" {@attach initMermaid}>
 			<data.content />
 		</div>
 	</article>

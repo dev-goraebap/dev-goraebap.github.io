@@ -31,7 +31,7 @@
 
 <article class="group">
 	<a
-		href="{base}/blog/{post.slug}"
+		href="{base}/posts/{post.slug}"
 		class="squircle flex cursor-pointer flex-col overflow-hidden border p-2 transition-all duration-300 ease-in-out"
 		style:border-radius="28px"
 		style="border-color: var(--color-border); background-color: var(--color-bg);"
