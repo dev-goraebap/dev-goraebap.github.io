@@ -12,9 +12,9 @@
 		<!-- Left: Illustration (mobile: below content) -->
 		<div class="order-2 mx-auto mt-8 w-64 md:order-1 md:mt-0 md:w-full">
 			<img
-				src="/item-02.png"
+				src="/about.svg"
 				alt="몬스테라 화분 일러스트"
-				class="w-full select-none"
+				class="w-full select-none dark:invert dark:hue-rotate-180"
 				draggable="false"
 			/>
 		</div>
