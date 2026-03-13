@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { formatDate } from '$lib/posts';
+	import { SITE_URL } from '$lib/config';
 	import mermaid from 'mermaid';
 
 	let { data } = $props();
@@ -100,6 +101,9 @@
 	<meta property="og:title" content={data.meta.title} />
 	<meta property="og:description" content={data.meta.description} />
 	<meta property="og:type" content="article" />
+	{#if data.meta.cover}
+		<meta property="og:image" content="{SITE_URL}{data.meta.cover}" />
+	{/if}
 </svelte:head>
 
 <div class="mx-auto max-w-264 md:grid md:grid-cols-[minmax(0,640px)_280px] md:gap-16">
