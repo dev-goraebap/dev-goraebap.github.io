@@ -21,7 +21,7 @@
 			<button
 				class="bottom-nav-item"
 				style="color: {search.open ? 'var(--color-accent)' : 'var(--color-text-tertiary)'};"
-				onclick={() => (search.open = true)}
+				onclick={() => search.show()}
 			>
 				<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 					<circle cx="11" cy="11" r="8" />

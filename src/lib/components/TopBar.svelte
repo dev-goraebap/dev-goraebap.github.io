@@ -56,7 +56,7 @@
 		<div class="flex items-center gap-2">
 			<!-- Search Bar (desktop only) -->
 			<div class="hidden md:block">
-				<LiquidGlass class="h-9 w-55 cursor-pointer items-center px-3 text-sm" onclick={() => (search.open = true)}>
+				<LiquidGlass class="h-9 w-55 cursor-pointer items-center px-3 text-sm" onclick={() => search.show()}>
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						width="14"
