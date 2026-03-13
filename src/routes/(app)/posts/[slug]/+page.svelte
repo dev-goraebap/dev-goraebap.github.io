@@ -1,7 +1,10 @@
 <script lang="ts">
 	import { formatDate } from '$lib/posts';
 	import { SITE_URL } from '$lib/config';
+	import { base } from '$app/paths';
+	import { goto } from '$app/navigation';
 	import mermaid from 'mermaid';
+	import LiquidGlass from '$lib/components/LiquidGlass.svelte';
 
 	let { data } = $props();
 
@@ -187,6 +190,27 @@
 		<div class="prose" {@attach initMermaid}>
 			<data.content />
 		</div>
+
+		<!-- End of Article -->
+		<section class="mt-20 flex flex-col items-center text-center">
+			<img
+				src="/post.svg"
+				alt=""
+				class="mb-6 h-40 w-40 select-none object-contain dark:invert dark:hue-rotate-180"
+				draggable="false"
+				aria-hidden="true"
+			/>
+			<p class="mb-1 text-lg" style="color: var(--color-text); font-family: var(--font-heading);">
+				끝까지 읽어주셔서 감사합니다
+			</p>
+			<p class="mb-6 text-sm" style="color: var(--color-text-tertiary);">
+				다른 글도 둘러보세요
+			</p>
+			<LiquidGlass class="inline-flex items-center gap-2 px-5 py-2.5 text-sm cursor-pointer" onclick={() => goto(`${base}/`)}>
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-accent);"><path d="m15 18-6-6 6-6"/></svg>
+				<span style="color: var(--color-accent);">목록으로 돌아가기</span>
+			</LiquidGlass>
+		</section>
 	</article>
 
 	<!-- Right: TOC (desktop only) -->
