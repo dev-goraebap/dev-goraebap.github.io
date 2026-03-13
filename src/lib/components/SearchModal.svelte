@@ -184,7 +184,7 @@
 								{#if post.meta.tags?.length}
 									<div class="search-item-tags">
 										{#each post.meta.tags as tag (tag)}
-											<span class="search-tag">{tag}</span>
+											<span class="search-tag">#{tag}</span>
 										{/each}
 									</div>
 								{/if}

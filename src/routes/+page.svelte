@@ -103,7 +103,7 @@
 						<span
 							style="color: {active
 								? 'var(--color-accent)'
-								: 'var(--color-text-secondary)'}; transition: color 150ms ease;">{tag}</span
+								: 'var(--color-text-secondary)'}; transition: color 150ms ease;">#{tag}</span
 						>
 						<span
 							class="ml-1.5 text-xs"
