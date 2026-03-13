@@ -27,7 +27,7 @@
 				class="text-2xl font-medium tracking-tight transition-colors duration-150"
 				style="color: var(--color-text); font-family: var(--font-logo);"
 				onclick={(e) => {
-					if (page.route.id === '/') e.preventDefault();
+					if (page.url.pathname === '/') e.preventDefault();
 				}}
 			>
 				dev.goraebap
@@ -35,9 +35,9 @@
 			{#each navItems as { href, label } (href)}
 				{@const isActive =
 					href === '/'
-						? page.route.id !== '/about'
-						: page.route.id?.startsWith(href)}
-				{@const isCurrent = page.route.id === href}
+						? !page.url.pathname.startsWith('/about')
+						: page.url.pathname.startsWith(href)}
+				{@const isCurrent = page.url.pathname === href}
 				<a
 					href="{base}{href}"
 					class="hidden text-sm font-medium transition-colors duration-150 md:inline"

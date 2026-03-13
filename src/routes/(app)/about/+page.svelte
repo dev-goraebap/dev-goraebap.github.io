@@ -14,7 +14,7 @@
 			<img
 				src="/about.svg"
 				alt="몬스테라 화분 일러스트"
-				class="w-full select-none dark:invert dark:hue-rotate-180"
+				class="w-full max-h-80 object-contain select-none dark:invert dark:hue-rotate-180"
 				draggable="false"
 			/>
 		</div>

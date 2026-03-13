@@ -15,17 +15,16 @@
 	{#each navItems as { href, label } (href)}
 		{@const isActive =
 			href === '/'
-				? page.route.id !== '/about'
-				: page.route.id?.startsWith(href)}
+				? !page.url.pathname.startsWith('/about')
+				: page.url.pathname.startsWith(href)}
 		{#if href === '/search'}
 			<button
 				class="bottom-nav-item"
 				style="color: {search.open ? 'var(--color-accent)' : 'var(--color-text-tertiary)'};"
 				onclick={() => search.show()}
 			>
-				<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-					<circle cx="11" cy="11" r="8" />
-					<path d="m21 21-4.3-4.3" />
+				<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+					<path d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
 				</svg>
 				<span class="bottom-nav-label">{label}</span>
 			</button>
@@ -36,9 +35,8 @@
 				style="color: {isActive ? 'var(--color-accent)' : 'var(--color-text-tertiary)'};"
 			>
 				{#if href === '/'}
-					<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-						<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
-						<path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+					<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+						<path d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
 					</svg>
 				{:else}
 					<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
