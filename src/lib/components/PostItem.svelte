@@ -6,7 +6,7 @@
 </script>
 
 <article class="group border-b py-6" style="border-color: var(--color-border);">
-	<a href="/blog/{post.slug}" class="block">
+	<a href="/posts/{post.slug}" class="block">
 		<div class="mb-2 flex items-center gap-2 text-sm" style="color: var(--color-text-secondary);">
 			<time datetime={post.meta.date}>{formatDate(post.meta.date)}</time>
 		</div>

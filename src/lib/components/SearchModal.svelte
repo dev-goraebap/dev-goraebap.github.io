@@ -79,7 +79,7 @@
 	}
 
 	function navigate(post: Post) {
-		goto(`${base}/blog/${post.slug}`);
+		goto(`${base}/posts/${post.slug}`);
 		closeModal();
 	}
 
@@ -167,7 +167,7 @@
 					{#each results as post, i (post.slug)}
 						<li>
 							<a
-								href="/blog/{post.slug}"
+								href="/posts/{post.slug}"
 								class="search-item"
 								class:search-item--active={i === selectedIndex}
 								onclick={(e) => { e.preventDefault(); navigate(post); }}

@@ -44,7 +44,7 @@
 				읽어볼 만한 글
 			</h1>
 			<p class="text-sm" style="color: var(--color-text-secondary);">
-				개발하며 배운 것들을 기록합니다
+				고민의 흔적들을 기록합니다.
 			</p>
 		</section>
 
@@ -73,7 +73,7 @@
 		{#if !selectedTag && data.posts.length > 6}
 			<div class="mt-10 text-center">
 				<a
-					href="/blog"
+					href="/posts"
 					class="text-sm font-medium transition-colors duration-150"
 					style="color: var(--color-accent);"
 				>
