@@ -37,7 +37,10 @@
 		style="border-color: var(--color-border); background-color: var(--color-bg);"
 	>
 		<!-- Cover Image -->
-		<div class="squircle relative aspect-[2/1] w-full overflow-hidden" style="border-radius: 20px;">
+		<div
+			class="squircle relative aspect-[2/1] w-full overflow-hidden"
+			style="border-radius: 20px; background: {post.meta.coverColor ?? gradient};"
+		>
 			<div
 				class="h-full w-full transition-transform duration-300 ease-in-out group-hover:scale-105"
 			>
@@ -47,11 +50,13 @@
 						alt={post.meta.title}
 						class="absolute inset-0 h-full w-full object-cover"
 						loading="lazy"
+						decoding="async"
+						width="640"
+						height="320"
 					/>
 				{:else}
 					<div
 						class="absolute inset-0 flex items-center justify-center"
-						style="background: {gradient};"
 					>
 						<span
 							class="text-4xl font-light text-white/80"

@@ -105,8 +105,7 @@
 	<meta property="og:description" content={data.meta.description} />
 	<meta property="og:type" content="article" />
 	{#if data.meta.cover}
-		{@const ogImage = data.meta.cover.replace('/covers/', '/og/').replace('.svg', '.png')}
-		<meta property="og:image" content="{SITE_URL}{ogImage}" />
+		<meta property="og:image" content="{SITE_URL}/og/{data.slug}.png" />
 	{/if}
 </svelte:head>
 
@@ -114,11 +113,14 @@
 	<!-- Left: Article -->
 	<article {@attach tocAttachment}>
 		<!-- Thumbnail Hero -->
-		<div class="squircle mb-8 aspect-2/1 w-full overflow-hidden" style="border-radius: 20px;">
+		<div
+			class="squircle mb-8 aspect-2/1 w-full overflow-hidden"
+			style="border-radius: 20px; background: {data.meta.coverColor ?? gradient};"
+		>
 			{#if data.meta.cover}
-				<img src={data.meta.cover} alt={data.meta.title} class="h-full w-full object-cover" />
+				<img src={data.meta.cover} alt={data.meta.title} class="h-full w-full object-cover" width="1200" height="630" decoding="async" />
 			{:else}
-				<div class="flex h-full w-full items-center justify-center" style="background: {gradient};">
+				<div class="flex h-full w-full items-center justify-center">
 					<span class="text-6xl font-light text-white/80" style="font-family: var(--font-heading);">
 						{data.meta.title.charAt(0)}
 					</span>

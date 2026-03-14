@@ -6,6 +6,11 @@
       "sourceType": "github",
       "computedHash": "a4733318997e024c77f9bc585581d924d8444d45295e21ef0d77bd569fcbafd9"
     },
+    "pdf-parser": {
+      "source": "dev-goraebap/skills",
+      "sourceType": "github",
+      "computedHash": "d4cedc17f61cc2848a2e5a5fe18fb5a2ea8ac249f390ffda4c5a538f740925aa"
+    },
     "ui-ux-pro-max": {
       "source": "nextlevelbuilder/ui-ux-pro-max-skill",
       "sourceType": "github",
