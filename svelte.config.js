@@ -5,6 +5,7 @@ import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeExternalLinks from 'rehype-external-links';
 import rehypeCallouts from './src/lib/rehype-callouts.js';
+import remarkRelativeImages from './src/lib/remark-relative-images.js';
 
 const highlighter = await createHighlighter({
 	themes: ['github-light', 'github-dark'],
@@ -28,6 +29,7 @@ const config = {
 	preprocess: [
 		mdsvex({
 			extensions: ['.md'],
+			remarkPlugins: [remarkRelativeImages],
 			rehypePlugins: [rehypeSlug, [rehypeAutolinkHeadings, { behavior: 'wrap' }], rehypeCallouts, [rehypeExternalLinks, { target: '_blank', rel: ['noopener', 'noreferrer'] }]],
 			highlight: {
 				highlighter: (code, lang) => {
