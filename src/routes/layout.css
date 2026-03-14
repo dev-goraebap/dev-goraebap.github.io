@@ -317,8 +317,21 @@ body {
 	font-weight: 600;
 }
 
+img {
+	opacity: 0;
+	transition: opacity 0.7s ease-in-out;
+}
+
+img.loaded {
+	opacity: 1;
+}
+
 .prose img {
 	border-radius: 8px;
+	display: block;
+	margin-inline: auto;
+	max-width: 100%;
+	height: auto;
 }
 
 /* ── Superellipse (squircle) corners ── */
