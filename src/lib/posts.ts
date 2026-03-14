@@ -4,6 +4,7 @@ export interface PostMeta {
 	date: string;
 	tags: string[];
 	cover?: string;
+	coverColor?: string;
 	published: boolean;
 	order?: number;
 }
@@ -14,13 +15,21 @@ export interface Post {
 }
 
 export async function getPosts(): Promise<Post[]> {
-	const modules = import.meta.glob('/src/posts/*.md', { eager: true });
+	const modules = import.meta.glob('/src/posts/*/index.md', { eager: true });
+	const coverModules = import.meta.glob('/src/posts/*/assets/cover.png', {
+		eager: true,
+		import: 'default',
+		query: '?url'
+	}) as Record<string, string>;
 
 	const posts: Post[] = [];
 
 	for (const [path, module] of Object.entries(modules)) {
 		const { metadata } = module as { metadata: PostMeta };
-		const slug = path.split('/').pop()!.replace('.md', '');
+		const slug = path.split('/').at(-2)!;
+
+		const coverUrl = coverModules[`/src/posts/${slug}/assets/cover.png`];
+		metadata.cover = coverUrl ?? undefined;
 
 		if (metadata.published) {
 			posts.push({ meta: metadata, slug });
