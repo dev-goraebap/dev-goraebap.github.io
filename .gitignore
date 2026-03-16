@@ -3,6 +3,9 @@ node_modules
 # Output
 .output
 /static/og
+
+# Posts (로컬 빌드 후 배포, 소스는 remote에 올리지 않음)
+/src/posts
 .vercel
 .netlify
 .wrangler
