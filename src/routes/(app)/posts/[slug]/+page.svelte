@@ -62,7 +62,7 @@
 	let tocItems = $state<TocItem[]>([]);
 	let activeId = $state('');
 
-	function tocAttachment(node: HTMLElement) {
+	function tocAction(node: HTMLElement) {
 		const headings = Array.from(node.querySelectorAll('h2, h3')) as HTMLElement[];
 		tocItems = headings
 			.filter((h) => h.id)
@@ -94,7 +94,7 @@
 		updateActive();
 		window.addEventListener('scroll', updateActive, { passive: true });
 
-		return () => window.removeEventListener('scroll', updateActive);
+		return { destroy: () => window.removeEventListener('scroll', updateActive) };
 	}
 </script>
 
@@ -111,7 +111,7 @@
 
 <div class="mx-auto max-w-264 md:grid md:grid-cols-[minmax(0,640px)_280px] md:gap-16">
 	<!-- Left: Article -->
-	<article {@attach tocAttachment}>
+	<article use:tocAction>
 		<!-- Thumbnail Hero -->
 		<div
 			class="squircle mb-8 aspect-2/1 w-full overflow-hidden"

@@ -1,5 +1,5 @@
 import { execSync } from 'node:child_process';
-import { existsSync } from 'node:fs';
+import { existsSync, writeFileSync } from 'node:fs';
 
 const BUILD_DIR = 'build';
 const BRANCH = 'gh-pages';
@@ -14,6 +14,7 @@ const run = (cmd) => execSync(cmd, { stdio: 'inherit' });
 try {
 	process.chdir(BUILD_DIR);
 
+	writeFileSync('.nojekyll', '');
 	run('git init');
 	run('git checkout -B ' + BRANCH);
 	run('git add -A');
